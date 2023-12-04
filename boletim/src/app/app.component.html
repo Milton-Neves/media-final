@@ -1,0 +1,31 @@
+<h1>Cálculo da Média</h1>
+
+<form>
+  <div>
+    <label for="bim1">Bimestre 1</label>
+    <input type="number" id="bim1" [value]="boletim.obterBim1()" #b1 />
+  </div>
+  <div>
+    <label for="bim2">Bimestre 2</label>
+    <input type="number" id="bim2" [value]="boletim.obterBim2()" #b2 />
+  </div>
+  <div>
+    <button (click)="calcMP(+b1.value, +b2.value)">Calcular</button>
+  </div>
+</form>
+
+<div *ngIf="resultadoParcial !== ''">
+  <p>{{ resultadoParcial }}</p>
+</div>
+
+<form *ngIf="mediaParcial < 60 && resultadoParcial !== ''">
+  <div>
+    <label for="naf">Avaliação final</label>
+    <input type="number" id="naf" #naf />
+    <button (click)="calcMF(+naf.value)">Calcular</button>
+  </div>
+</form>
+
+<div *ngIf="resultadoFinal !== ''">
+  <p>{{ resultadoFinal }}</p>
+</div>
